@@ -1,0 +1,38 @@
+<%- include('./header.ejs') %>
+    <div class="container-fluid">
+        <main class="tm-main">
+            <!-- Search form -->
+            <div class="row tm-row">
+                <div class="col-12">
+                    <form method="GET" class="form-inline tm-mb-80 tm-search-form">                
+                        <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
+                        <button class="tm-search-button" type="submit">
+                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                        </button>                                
+                    </form>
+                </div>                
+            </div>            
+            <div class="row tm-row">
+              <% data.forEach(blog =>{ %>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="/blog/<%= blog.slug %>" class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <img src="<%= blog.featured_image %>" alt="<%= blog.featured_image_alt %>" class="img-fluid">                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title"><%= blog.title %></h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                       <%= blog.summary %>
+                    </p>
+                    <div class="d-flex justify-content-between">
+                        <span class="tm-color-primary"><%= blog.categories[0].name %></span>
+                        <span class="tm-color-primary"><%= blog.published %></span>
+                    </div>
+                </article>
+             <%}) %>
+            </div>         
+        </main>
+    </div>
+</body>
+</html>

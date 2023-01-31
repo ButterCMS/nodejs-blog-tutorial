@@ -1,0 +1,21 @@
+<%- include('./header.ejs') %>
+    <div class="container-fluid">
+        <main class="tm-main">         
+            <div class="row tm-row">
+                <div class="col-12">
+                    <img width="954" height="535" class="tm-mb-40" src="<%= data.featured_image %>">
+                    </img>
+
+                    <div class="mb-4">
+                        <h2 class="pt-2 tm-color-primary tm-post-title"><%= data.title %></h2>
+                        <p class="tm-mb-40"><%= data.published %></p>
+                        <p>
+                            <%- data.body %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
